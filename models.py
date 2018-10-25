@@ -285,6 +285,8 @@ class Darknet(nn.Module):
 
         ptr = 0
         for i, (module_def, module) in enumerate(zip(self.module_defs, self.module_list)):
+            if ptr >= weights.size:
+                break
             if module_def["type"] == "convolutional":
                 conv_layer = module[0]
                 if module_def["batch_normalize"]:
