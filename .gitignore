@@ -11,3 +11,6 @@ weights/*.weights
 __pycache__
 checkpoints
 *.ini
+VOCdevkit
+voc_vanilla/
+weights/
