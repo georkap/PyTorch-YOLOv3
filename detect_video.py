@@ -66,7 +66,7 @@ def main():
     
     writer = prepare_video_writer(output_vid_path, (video_width, video_height), fps)
     print("Saving output video at {}".format(output_vid_path))
-    cap.set(cv2.CAP_PROP_POS_FRAMES, 550)
+#    cap.set(cv2.CAP_PROP_POS_FRAMES, 550)
 
     resize_input=opt.resize_input
     # Get detections
