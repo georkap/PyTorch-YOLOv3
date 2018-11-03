@@ -1,0 +1,5 @@
+train  = sample_train.txt
+valid  = sample_train.txt
+names = data/voc.names
+backup = backup
+gpus  = 0
