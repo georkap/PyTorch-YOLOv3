@@ -63,7 +63,7 @@ def main():
     num_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     fps = cap.get(cv2.CAP_PROP_FPS)
     output_vid_path = os.path.join(r"outputs", 
-                                   os.path.basename(opt.video_file).split('.')[0]+"_detections.mp4")
+                                   os.path.basename(opt.video_file).split('.')[0]+"_detections_{}.mp4".format(int(100*opt.class_thresh)))
     
     writer = prepare_video_writer(output_vid_path, (video_width, video_height), fps)
     print("Saving output video at {}".format(output_vid_path))
