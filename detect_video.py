@@ -31,6 +31,7 @@ def main():
     parser.add_argument('--config_path', type=str, default='config/yolov3.cfg', help='path to model config file')
     parser.add_argument('--weights_path', type=str, default='weights/yolov3.weights', help='path to weights file')
     parser.add_argument('--class_path', type=str, default='data/coco.names', help='path to class label file')
+    parser.add_argument('--class_thresh', type=str, default=0.25)
     parser.add_argument('--conf_thres', type=float, default=0.8, help='object confidence threshold')
     parser.add_argument('--nms_thres', type=float, default=0.4, help='iou thresshold for non-maximum suppression')
     parser.add_argument('--batch_size', type=int, default=1, help='size of the batches')
@@ -96,7 +97,7 @@ def main():
                     for x1, y1, x2, y2, conf, cls_conf, cls_pred in detections[0]: # get the first image of the batch, works because batch=1
                         if classes[int(cls_pred)] != 'person': # keep only person detections
                             continue
-                        if cls_conf < 0.25:
+                        if cls_conf < opt.class_thresh:
                             continue
                         if resize_input:
                             y1 *= resize_ratio[0]
